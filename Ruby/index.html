@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>A Little Letter Sealed With Sunshine</title>
+  <!-- If you serve from the site root, keep the leading slash.
+       If you're opening the file directly, change to "css/main.css". -->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+  <!-- Curved ribbon banner -->
+  <div class="ribbon-container fade-in">
+    <img src="assets/titlebg.png"
+         alt="A Little Letter Sealed With Sunshine"
+         class="ribbon-image" />
+  </div>
+
+  <!-- Center sunflower button -->
+  <div class="sunflower-container fade-in delay-1">
+    <img src="assets/ribbon.png"
+         alt="Sunflower"
+         class="sunflower"
+         id="sunflowerBtn" />
+  </div>
+
+  <em class="tap-hint">Click the sunflower to open ✨ 🌻</em>
+
+
+  <!-- Popup overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="ov-inner" role="dialog" aria-label="Intro video">
+      <video id="introVid" class="intro-video" playsinline webkit-playsinline controls preload="metadata">
+        <!-- We'll set the src from JS; leaving a valid type here helps browsers -->
+        <source id="vidSrc" src="" type="video/mp4">
+      </video>
+      <div class="ov-actions">
+        <button id="skip"  class="btn ghost">Skip ▶</button>
+        <button id="close" class="btn ghost">Close ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- If you serve from the site root, keep the leading slash.
+       If you're opening the file directly, change to "js/index.js". -->
+  <script src="/js/index.js"></script>
+</body>
+</html>

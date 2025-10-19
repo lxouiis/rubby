@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Laiba 🌻</title>
+  <link rel="stylesheet" href="css/page2.css" />
+</head>
+<body>
+  <main class="card">
+    <!-- Character over the image -->
+    <button id="charBtn" class="char-btn" aria-label="Open surprise video">
+      <img id="char" class="character" src="assets/char-bunny.png"
+           alt="Cute bunny holding a sunflower"/>
+    </button>
+  </main>
+
+  <!-- Video overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="ov-inner" role="dialog" aria-label="Surprise video">
+      <video id="introVid" class="intro-video" playsinline webkit-playsinline controls preload="metadata">
+        <source id="vidSrc" src="" type="video/mp4"/>
+      </video>
+      <div class="ov-actions">
+        <button id="skip"  class="btn ghost">Skip ▶</button>
+        <button id="close" class="btn ghost">Close ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/page2.js"></script>
+</body>
+</html>

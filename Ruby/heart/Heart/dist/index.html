@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>heart ❤️❤️❤️</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* Minimal overlay styles (add to style.css if you prefer) */
+    .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);padding:18px;z-index:9999}
+    .overlay.show{display:flex}
+    .ov-inner{width:min(900px,94vw);display:grid;gap:10px;justify-items:center}
+    .intro-video{width:100%;max-height:75vh;background:#000;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.25)}
+    .ov-actions{display:flex;gap:10px;justify-content:center}
+    .btn{background:#1f2937;color:#fff;border:0;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.ghost{background:#fff;color:#111;border:1px solid #ddd}
+  </style>
+</head>
+<body>
+  <main class="background"></main>
+
+  <div class="box">
+    <canvas id="pinkboard"></canvas>
+  </div>
+
+  <!-- 🔽 Video overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="ov-inner" role="dialog" aria-label="Next video">
+      <video id="introVid" class="intro-video" playsinline webkit-playsinline controls preload="metadata">
+        <source id="vidSrc" src="" type="video/mp4" />
+      </video>
+      <div class="ov-actions">
+        <button id="skip" class="btn">Skip ▶</button>
+        <button id="close" class="btn ghost">Close ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

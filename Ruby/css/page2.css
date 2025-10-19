@@ -1,0 +1,79 @@
+/* wallpaper-sized card image (the one you just sent) */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  background:#f2e5c9;
+  overflow:hidden;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.card{
+  position:relative;
+  width:min(980px, 94vw);
+  height:min(86vh, 760px);
+  margin:24px auto;
+  border-radius:20px;
+  background: url("../assets/card-full.png") center/cover no-repeat; /* <- save your PNG as card-full.png */
+  box-shadow: 0 18px 44px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+
+/* character placement: bottom-right, aligned with parchment edge */
+.char-btn{
+  position:absolute;
+  bottom:8%;            /* tweak if needed */
+  right:9%;             /* tweak if needed */
+  appearance:none; border:0; background:transparent; padding:0; cursor:pointer;
+  z-index:2;
+}
+.character{
+  width: clamp(150px, 23vw, 250px);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+  transform-origin:center;
+  will-change: transform, filter, opacity;
+}
+
+/* animations (enabled via JS) */
+@keyframes glowPulse{
+  0%{ filter:drop-shadow(0 10px 20px rgba(0,0,0,.25)) brightness(1) }
+  50%{ filter:drop-shadow(0 10px 24px rgba(0,0,0,.25)) brightness(1.25) saturate(1.05) }
+  100%{ filter:drop-shadow(0 10px 20px rgba(0,0,0,.25)) brightness(1) }
+}
+@keyframes flyAway{
+  0%{ transform:translate(0,0) scale(1); opacity:1 }
+  100%{ transform:translate(-120%,-120%) scale(1.8) rotate(-6deg); opacity:0 }
+}
+
+/* trailing glitter */
+.sparkle{
+  position:absolute; width:7px; height:7px; border-radius:50%;
+  background:radial-gradient(circle, #fff 0 40%, transparent 60%);
+  mix-blend-mode:screen; pointer-events:none; opacity:0; z-index:1;
+  animation:sparkle 1200ms ease-out forwards;
+}
+@keyframes sparkle{
+  0%{ transform:scale(.6); opacity:0 }
+  30%{ transform:scale(1.1); opacity:1 }
+  100%{ transform:scale(.9) translateY(-12px); opacity:0 }
+}
+
+/* video overlay */
+.overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.6);
+  display:none; align-items:center; justify-content:center; padding:18px; z-index:9999;
+}
+.overlay.show{ display:flex }
+.ov-inner{ width:min(900px,94vw); display:grid; gap:10px; justify-items:center }
+.intro-video{
+  width:100%; max-height:75vh; background:#000; border-radius:16px;
+  box-shadow:0 18px 40px rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.25)
+}
+.ov-actions{ display:flex; gap:10px; justify-content:center }
+.btn{
+  background:#1f2937; color:#fff; border:0; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer
+}
+.btn.ghost{ background:#fff; color:#111; border:1px solid #ddd }
+
+@media (prefers-reduced-motion: reduce){
+  .character,.sparkle{ animation:none !important }
+}

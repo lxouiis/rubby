@@ -1,0 +1,122 @@
+/* ===== Mobile-first cover page ===== */
+:root{
+  --paper:#FCEFD8;
+  --shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+/* reset */
+*{ box-sizing:border-box }
+html, body{ height:100% }
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--paper) url("../assets/sunflower-bg.png") center/180px repeat;
+  text-align:center;
+  overflow-x:hidden;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+
+/* ribbon on top */
+.ribbon-container{ margin-top:16px }
+.ribbon-image{
+  width:min(92vw, 640px);
+  height:auto;
+  display:block;
+  margin-inline:auto;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.22));
+}
+
+/* sunflower button */
+.sunflower-container{
+  display:flex;
+  justify-content:center;
+  margin-top:28px;
+}
+.sunflower{
+  width:min(64vw, 280px);
+  height:auto;
+  cursor:pointer;
+  transition: transform .25s ease, filter .25s ease;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+.sunflower:active{ transform: scale(.98) }
+@media (hover:hover){
+  .sunflower:hover{ transform: scale(1.06) }
+}
+
+/* hint */
+.tap-hint{
+  margin:16px 0 10px;
+  font-size:14px;
+  color:#2b2b2b;
+  opacity:.9;
+}
+
+/* soft entrance */
+.fade-in{ opacity:0; animation:fadeIn .9s ease forwards }
+.delay-1{ animation-delay:.45s }
+.delay-2{ animation-delay:.9s }
+@keyframes fadeIn{
+  from{ opacity:0; transform: translateY(-8px) }
+  to{ opacity:1; transform: translateY(0) }
+}
+/* ==== 🌻 popup video overlay ==== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 9999;
+}
+.overlay.show {
+  display: flex;
+}
+.ov-inner {
+  width: min(900px, 94vw);
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+.intro-video {
+  width: 100%;
+  max-height: 75vh;
+  background: #000;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.ov-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.btn {
+  background: #1f2937;
+  color: #fff;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn.ghost {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* tiny status chip for debugging (remove later) */
+#vidStatus{
+  position:fixed;
+  left:8px; bottom:8px;
+  font:12px/1.2 ui-sans-serif,system-ui;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:6px 8px;
+  z-index:10000;
+  box-shadow:0 4px 12px rgba(0,0,0,.12)
+}
